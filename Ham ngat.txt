@@ -1,0 +1,20 @@
+Ngắt 21h, hàm 1, hàm 2, hàm 9, hàm 4ch
+Ngắt bàn phím: 16h
+- Hàm 00 --> ah = 00h: đọc 1 ký tự
+al chứa mã ASCII của ký tự được bấm (phím bình thường)
+phím chức năng: al=0, ah = mã quét của các phím bấm
+- Hàm 01h --> ah = 01h: kiểm tra trạng thái sẵn sàng của bàn phím
+Kiểm tra cờ ZF, nếu ZF=1: không có ký tự nào trong vùng đệm
+nếu ZF=0: phím mở rộng
+al = 0: mã bàn phím mở rộng
+ah = 0: mã scan phím
+- Hàm 02h: nhận biết phím điều khiển
+al = trạng thái phím
+7    6    5    4    3    2    1    0
+Insert    Caplock Numlock    Scrollock    Alt    Ctrl    Shiftright    Shiftleft
+
+Ngắt thời gian:
+Hàm 2ch, ngắt 21h
+mov ah, 2ch
+int 21h
+-> ch: giờ, cl: phút, dh: giây, dl: %giây

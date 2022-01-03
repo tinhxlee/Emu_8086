@@ -1,0 +1,63 @@
+;nhập và in ra số đó plus
+.model small
+.stack 100h
+.data
+    s1 db 'Nhap so: $'
+    s2 db 10, 13, 'So do la: $'     
+    a dw 0  
+.code
+    main proc
+        mov ax, @data  
+        mov ds, ax
+        
+        mov ah, 9 
+        lea dx, s1
+        int 21h
+        
+       mov bx,10
+       mov cx,0
+nhap:       
+       mov ah,1
+       int 21h
+       cmp al,13
+       je enter
+       sub al,30h
+       mov cl,al
+       mov ax,a
+       mul bx
+       add ax,cx
+       mov a,ax
+       jmp nhap
+      
+enter:
+       mov ah,9
+       lea dx,s2
+       int 21h
+       
+       
+       mov ax,a
+       mov bx,10
+       mov cx,0
+chiatiep:
+       mov dx,0
+       div bx
+       push dx
+       inc cl
+       cmp ax,0
+       je inra
+       jmp chiatiep 
+        
+        
+inra:  
+       mov ah,2
+       pop dx
+       add dl,30h
+       
+       int 21h
+       loop inra
+       
+
+        mov ah, 4ch
+        int 21h
+    main endp
+end main

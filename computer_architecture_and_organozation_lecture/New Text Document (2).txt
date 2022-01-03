@@ -1,0 +1,10 @@
+Lệnh số học 
+
+Cộng :    add     destination, source    ->>destination =  destination + source
+
+          mov ax, 5
+          mov bx, 4
+          add ax, bx             ; ax = 9 , bx = 4
+
+trừ       sub destination, source
+          sub ax, bx            ; ax = 1 ; bx = 4

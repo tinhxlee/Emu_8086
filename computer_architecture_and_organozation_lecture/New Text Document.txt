@@ -1,0 +1,67 @@
+AH, AL, BH, CH, CL, DH, DL
+Ah : chứa số liệu hàm (function), ah chứa dư, al chứa thương
+Cx : chứ số lần lặp -> count
+BX : Lưu địa chỉ cơ sở
+DX : Kết hợp với AX để lưu kết quả của phép nhân(DX : lưu phần cao, AX lưu phần thấp)
+Chia : DX chứa dư, AX chứa thương
+
+Các thanh ghi đoạn
+CS : code segment - trỏ đến đoạn lệnh - CS : IP
+DS : data segment - trỏ đến đoạn dữ liệu : DS : BP
+SS : stack segment - trỏ đến đoạn stack : SS : SP
+ES : extra segment
+
+Các thanh ghi con trỏ 
+IP : Instruction pointer
+BP : base pointer
+SP : stack pointer
+
+Thanh ghi chỉ số nguồn, đích
+SI : source index, DI : destination index
+DS:SI , ES:DI
+
+Các thành ghi cờ (flag register) : zf(zero flag), if(interrupt flag), of(overflow flag),cf(carry flag),......
+
+Cú pháp : 
+[Nhãn] Mã lệnh [toán hạng] [; comment]
+
+Nhóm lệnh
+-Nhóm lệnh chuyển dữ liệu 
+Mov toán hạng đích, toán hạng nguồn
+VD : mov ah,2 ; chuyển 2 vào thanh ghi ah
+
+Một số hàm cơ bản : số hiệu hàm đặt trong thanh ghi ah  ====================
+
+Hàm 1, ngắt 21h
+Đọc 1 ký tự từ bàn phím , mã ASCII của ký tự được lưu trong thanh ghi al
+
+Ham 2, ngắt 21h
+Đưa 1 ký tự (mã ASCII của ký tự) chứa trong thanh ghi dl ra màn hình
+
+Hàm 9 , ngắt 21h
+Đưa 1 xâu ký tự được trỏ bởi thanh ghi dx ra màn hình
+
+Khai báo xâu ký tự : xâu db 'xâu ký tự $'
+
+hàm 4ch , ngắt 21h : kết thúc chương trình
+Gọi ngắt : int số hiệu ngắt
+int 21h
+
+============================================================
+cấu trúc chương trình(nhiều kiểu viết)
+
+.model small   ; tini , large
+.stack 100h    ; địa chỉ của stack
+.data          ; khai báo dữ liệu
+.code          ; bắt đầu đoạn lệnh
+main proc
+     mov ax, @data
+     mov ds, ax        ; chuyển dữ liệu vào thanh ghi ds thông qua ax
+     các câu lệnh
+main endp
+ctc proc 
+             các lệnh chương trình con
+ctc endp
+
+
+end main

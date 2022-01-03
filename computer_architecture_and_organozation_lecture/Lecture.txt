@@ -1,0 +1,35 @@
+Cmp    đích, nguồn              ; so sánh đích với nguồn (đích – nguồn)
+
+Lệnh nhảy có điều kiện
+
+Je        nhãn                           ; đích = nguồn (jump if equal)
+
+Jne      nhãn                           ; đích khác nguồn (jump if not equal)
+
+jl          nhãn                           ; đích < nguồn (jump if less than)
+
+jle        nhãn                           ; đích <= nguồn
+
+jb        nhãn                           ; jump if below
+
+jbe      nhãn
+
+jg         nhãn                           ; đích > nguồn (jump if greater than)
+
+jge      nhãn                           ; đích >= nguồn (jump if greater than or equal)
+
+ja         nhãn                           ; jump if above
+
+jae      nhãn
+
+jc         nhãn                           ; jump if carry
+
+jnc      nhãn
+
+jz         nhãn                           ; jump if zero
+
+jnz       nhãn
+
+Nhảy không điều kiện
+
+jmp     nhãn                           ; jump

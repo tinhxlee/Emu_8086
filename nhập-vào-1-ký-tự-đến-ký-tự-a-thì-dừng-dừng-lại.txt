@@ -1,0 +1,17 @@
+;nhập vào 1 ký tự đến ký tự a thì dừng dừng lại 
+.model small
+.stack 100
+.data 
+   
+.code 
+main proc 
+nhaplai: 
+    mov ah,1
+    int 21h
+    cmp al,"a"
+    jne nhaplai    
+    
+    mov ah,4ch
+    int 21h
+main endp
+end
